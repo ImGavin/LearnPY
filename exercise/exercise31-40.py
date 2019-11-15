@@ -43,5 +43,9 @@ def get_revert_list(a_list):
 # l = [1,2,3]
 # print get_revert_list(l)
 
+# 题目33：按逗号分隔列表
+def get_split_list(a_list):
+    return ','.join(a_list)
 
-
+list1 = ['C','Y','L']
+print get_split_list(list1)
