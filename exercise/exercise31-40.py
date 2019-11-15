@@ -45,7 +45,54 @@ def get_revert_list(a_list):
 
 # 题目33：按逗号分隔列表
 def get_split_list(a_list):
-    return ','.join(a_list)
+    return '-'.join(a_list)
 
-list1 = ['C','Y','L']
-print get_split_list(list1)
+# list1 = ['C','Y','L']
+# print get_split_list(list1)
+
+# 题目33：练习函数调用
+def hello_python():
+    print "Hello Python!"
+
+def three_hellos():
+    for i in range(3):
+        hello_python()
+# if __name__ == '__main__':
+#     three_hellos()
+
+# 题目34：文本颜色设置
+def set_text_colorfull(text):
+    """
+        查阅：https://www.cnblogs.com/daofaziran/p/9015284.html
+        格式：开头部分：\033[显示方式;前景色;背景色m + 结尾部分：\033[0m
+    """
+    style = {
+        0: '终端默认设置',
+        1: '高亮显示',
+        4: '使用下划线',
+        5: '闪烁',
+        7: '反白显示'
+    }
+
+    font = {
+        30: '黑色',
+        31: '红色',
+        32: '绿色',
+        33: '黄色'
+    }
+
+    bg_color = {
+        40: '黑色',
+        41: '红色',
+        42: '绿色'
+    }
+
+    for s in style:
+        for f in font:
+            for bg in bg_color:
+                # 过滤掉前景色与背景色一致的情况
+                if font[f] != bg_color[bg]:
+                    print '\033[{};{};{}m{} {}\033[0m'.format(s,f,bg,s,text)
+
+# a_text = '白日依山尽，黄河入海流'
+# set_text_colorfull(a_text)
