@@ -50,7 +50,7 @@ def get_split_list(a_list):
 # list1 = ['C','Y','L']
 # print get_split_list(list1)
 
-# 题目33：练习函数调用
+# 题目34：练习函数调用
 def hello_python():
     print "Hello Python!"
 
@@ -60,7 +60,7 @@ def three_hellos():
 # if __name__ == '__main__':
 #     three_hellos()
 
-# 题目34：文本颜色设置
+# 题目35：文本颜色设置
 def set_text_colorfull(text):
     """
         查阅：https://www.cnblogs.com/daofaziran/p/9015284.html
@@ -96,3 +96,76 @@ def set_text_colorfull(text):
 
 # a_text = '白日依山尽，黄河入海流'
 # set_text_colorfull(a_text)
+
+# 题目36：求100之内的素数（质数）
+def get_zhishu(fanwei):
+    zhishu = []
+    for n in range(2,fanwei+1):
+        flag = 1
+        for i in range(2,n/2+1):
+            if n % i == 0:
+                flag = 0
+                break
+        if flag == 1:
+            zhishu.append(n)
+    return zhishu
+
+# print get_zhishu(100)
+
+# 题目37：对10个数进行排序
+def get_sort(a_list):
+    # rs = []
+    # a_list[0] = a_list[0]
+    for i in range(0,len(a_list)):
+        for j in range(0,len(a_list)-1-i):
+            if a_list[j] < a_list[j+1]:
+                a_list[j],a_list[j+1] = a_list[j+1],a_list[j]
+            print a_list[j],a_list[j+1]
+    return a_list
+
+# print get_sort([22,123,21,52,13,2,35,68,1])
+
+# 题目38：求一个3*3矩阵主对角线元素之和
+def get_zhuduijiao_sum(juzhen):
+    sum = 0.0
+    for i in range(len(juzhen[0])):
+        sum += juzhen[i][i]
+    return sum
+
+def get_a_juzhen(n):
+    juzhen = []
+    for i in xrange(n):
+        juzhen.append([])
+        for j in xrange(n):
+            juzhen[i].append(float(raw_input("input num:\n")))
+    return juzhen
+
+# print get_a_juzhen(3)
+# print get_zhuduijiao_sum(get_a_juzhen(3))
+
+def get_sort_again_list(a_list,num):
+    import copy
+    index = 0
+    rs = copy.deepcopy(a_list)
+    for i in range(len(a_list)):
+        if a_list[i] <= num and num <= a_list[i+1]:
+            index = i+1
+            break
+    rs.append(num)
+    for i in range(index+1,len(rs)):
+        rs[i] = a_list[i-1]
+    rs[index] = num
+    # print a_list,rs
+    return rs
+
+# alist = [11,23,27,36,58,73]
+# num = 22
+# print get_sort_again_list(alist,num)
+
+# 题目40：将一个数组逆序输出
+def get_revert_array(arr):
+    arr.reverse()
+    return arr
+
+# print get_revert_array([1,2,6,3,9])
+
